@@ -10,7 +10,6 @@
 
 #define DEF_INTERVAL 10
 #define MAX_CHARS 2000
-#define MAX_DISP_CHARS 95
 
 #define PID 1
 #define PPID 2
@@ -98,11 +97,9 @@ int main(int argc, char* argv[]){
         while(fgets(line,MAX_CHARS,pf)){
             string attr;
             string lineString(line);
-            lineString.resize(MAX_DISP_CHARS);
+
             cout<<lineString;
-            if(lineString.back() != '\n' ||lineString.back() != '\0'){
-                cout<<endl;
-            }
+
             //convert string to string stream, then look at each word in the stream.
             //if the word matches the PID,PPID, or CMD column of ps, then save each
             //word, and put them into a process struct.
